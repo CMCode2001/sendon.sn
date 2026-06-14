@@ -2,10 +2,11 @@ name: Build & Deploy — sendon.sn
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "sendon-v2/**"
       - ".github/workflows/deploy.yml"
+  workflow_dispatch:
 
 jobs:
   build-deploy:
