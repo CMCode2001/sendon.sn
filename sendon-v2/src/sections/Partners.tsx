@@ -9,7 +9,7 @@ const secondary = [
 
 export function Partners() {
   return (
-    <section className="bg-white py-12 md:py-16">
+    <section className="bg-white pb-12 pt-6 md:pb-16 md:pt-8">
       <Container>
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="font-display text-[28px] font-bold tracking-tight text-[#0c0a09] sm:text-[34px] lg:text-[50px]">
