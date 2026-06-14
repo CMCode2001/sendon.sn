@@ -2,9 +2,14 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { prefersStaticMotion } from "@/lib/motion"
+import { useTypewriter } from "@/hooks/useTypewriter"
 
 export function Hero() {
   const staticMotion = prefersStaticMotion()
+
+  const line1 = useTypewriter("Donnez du sang,", 45, 400)
+  const line2 = useTypewriter("Sauvez des vies.", 45, line1.done ? 0 : 99999)
+
   return (
     <section
       id="hero"
@@ -47,16 +52,23 @@ export function Hero() {
               Partenaire Officiel CNTS
             </motion.span>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]"
-            >
-              Donnez du sang,
-              <br />
-              <span className="text-[#c42b1c]">Sauvez des vies.</span>
-            </motion.h1>
+            <h1 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]">
+              {line1.displayed}
+              {!line1.done && (
+                <span className="animate-pulse text-rouge-400">|</span>
+              )}
+              {line1.done && (
+                <>
+                  <br />
+                  <span className="text-[#c42b1c]">
+                    {line2.displayed}
+                    {!line2.done && (
+                      <span className="animate-pulse">|</span>
+                    )}
+                  </span>
+                </>
+              )}
+            </h1>
 
             <motion.p
               initial={{ opacity: 0, y: 24 }}
