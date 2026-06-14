@@ -9,7 +9,7 @@ const secondary = [
 
 export function Partners() {
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white py-12 md:py-16">
       <Container>
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="font-display text-[28px] font-bold tracking-tight text-[#0c0a09] sm:text-[34px] lg:text-[50px]">
@@ -20,17 +20,14 @@ export function Partners() {
           <img
             src="/assets/partner-cnts.png"
             alt="Centre National de Transfusion Sanguine"
-            className="mt-12 h-[160px] w-auto object-contain md:h-[200px]"
+            className="mt-8 h-[120px] w-auto object-contain md:h-[150px]"
           />
-          <p className="mt-4 font-display text-xl font-medium text-[#383838] sm:text-2xl md:text-3xl">
+          <p className="mt-3 font-display text-lg font-medium text-[#383838] sm:text-xl md:text-2xl">
             Le Centre National de Transfusion Sanguine
           </p>
 
-          {/* Séparateur */}
-          <div className="mt-14 w-full border-t border-neutre-200" />
-
           {/* Partenaires secondaires */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-10 md:gap-16">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-12">
             {secondary.map((p) => (
               <img
                 key={p.alt}
