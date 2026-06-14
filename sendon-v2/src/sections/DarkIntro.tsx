@@ -1,17 +1,27 @@
-import { Play, Check } from "lucide-react"
+import { useState } from "react"
+import { Play } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Reveal } from "@/components/Reveal"
 import { prefersStaticMotion } from "@/lib/motion"
+import { VideoModal } from "@/components/VideoModal"
 
 const points = [
-  "Plateforme propulsée par SenDon-AI",
+  "Plateforme propulsée par des jeunes senégalais",
   "Partenaire officiel du CNTS",
   "Données hébergées au Sénégal, loi respectée.",
 ]
 
 export function DarkIntro() {
   const staticMotion = prefersStaticMotion()
+  const [videoOpen, setVideoOpen] = useState(false)
+
   return (
+    <>
+    <VideoModal
+      open={videoOpen}
+      onClose={() => setVideoOpen(false)}
+      youtubeId="u-b8DrVHBjg"
+    />
     <section className="relative overflow-hidden bg-[#0f0f0f] py-20 md:py-24">
       {/* red glow bottom-left */}
       <div className="pointer-events-none absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(231,37,37,0.22),transparent_60%)]" />
@@ -20,8 +30,8 @@ export function DarkIntro() {
         {/* Left — text */}
         <Reveal className="flex flex-col gap-6">
           <h2 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-[42px] lg:text-[50px]">
-            Donner du sang,{" "}
-            <span className="text-rouge-400">sauvez des vies !</span>
+            Un seul don peut sauvez{" "}
+            <span className="text-rouge-400">jusqu'à 3 vies !</span>
           </h2>
 
           <p className="max-w-[522px] font-display text-base font-medium leading-relaxed text-white/90">
@@ -33,9 +43,12 @@ export function DarkIntro() {
           <ul className="flex flex-col gap-3 pt-2">
             {points.map((p) => (
               <li key={p} className="flex items-center gap-3">
-                <span className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-rouge-400">
-                  <Check size={12} className="text-white" strokeWidth={3} />
-                </span>
+                <img
+                  src="/assets/puce.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-5 w-5 shrink-0 object-contain"
+                />
                 <span className="font-display text-sm font-semibold text-neutre-50">
                   {p}
                 </span>
@@ -58,6 +71,7 @@ export function DarkIntro() {
           <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0" />
           {/* play button */}
           <button
+            onClick={() => setVideoOpen(true)}
             aria-label="Lire la vidéo"
             className="absolute left-1/2 top-1/2 flex h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-rouge-400 text-white shadow-lg transition-transform hover:scale-105"
           >
@@ -72,5 +86,6 @@ export function DarkIntro() {
         </Reveal>
       </Container>
     </section>
+    </>
   )
 }
