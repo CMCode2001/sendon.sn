@@ -2,13 +2,13 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { prefersStaticMotion } from "@/lib/motion"
-import { useTypewriter } from "@/hooks/useTypewriter"
+import { useHeroTypewriter } from "@/hooks/useHeroTypewriter"
 
 export function Hero() {
   const staticMotion = prefersStaticMotion()
 
-  const line1 = useTypewriter("Donnez du sang,", 45, 400)
-  const line2 = useTypewriter("Sauvez des vies.", 45, line1.done ? 0 : 99999)
+  const { text1, text2, showLine2, cursor1Visible, cursor2Visible } =
+    useHeroTypewriter("Donnez du sang,", "Sauvez des vies.")
 
   return (
     <section
@@ -53,16 +53,16 @@ export function Hero() {
             </motion.span>
 
             <h1 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]">
-              {line1.displayed}
-              {!line1.done && (
+              {text1}
+              {cursor1Visible && (
                 <span className="animate-pulse text-rouge-400">|</span>
               )}
-              {line1.done && (
+              {showLine2 && (
                 <>
                   <br />
                   <span className="text-[#c42b1c]">
-                    {line2.displayed}
-                    {!line2.done && (
+                    {text2}
+                    {cursor2Visible && (
                       <span className="animate-pulse">|</span>
                     )}
                   </span>
@@ -76,9 +76,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="max-w-[520px] text-base font-light leading-[1.8] text-[#6b5f58] sm:text-lg"
             >
-              SenDon connecte les donneurs aux hôpitaux du Sénégal en temps réel.
-              Matching intelligent par IA, alertes SMS instantanées, 38 centres
-              partenaires.
+              SenDon connecte les donneurs aux hôpitaux du Sénégal en temps réel grace à la géolocalisation.
+              Matching intelligent par IA, alertes SMS instantanées, 
             </motion.p>
 
             <motion.div
