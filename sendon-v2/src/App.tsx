@@ -11,11 +11,13 @@ import { Partners } from "@/sections/Partners"
 import { Faq } from "@/sections/Faq"
 import { Cta } from "@/sections/Cta"
 import { Footer } from "@/components/layout/Footer"
+import { ScrollToTop } from "@/components/ScrollToTop"
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <ScrollToTop />
       <main>
         <Hero />
         <DarkIntro />
