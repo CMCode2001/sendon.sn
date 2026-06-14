@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   SENDON V2 — Design Tokens (Figma)
+   Palettes : Rouge · Vert · Neutre
+   ============================================================ */
+@theme {
+  /* ---------- Rouge (brand) ---------- */
+  --color-rouge-50: #ff8c8c;
+  --color-rouge-100: #ff7474;
+  --color-rouge-200: #ff4b4b;
+  --color-rouge-300: #f63232;
+  --color-rouge-400: #e72525;
+  --color-rouge-500: #d91e1e;
+  --color-rouge-600: #ca1919;
+  --color-rouge-700: #c4182c;
+  --color-rouge-800: #a8091c;
+  --color-rouge-900: #700414;
+
+  /* ---------- Vert ---------- */
+  --color-vert-50: #32e231;
+  --color-vert-100: #2dd72c;
+  --color-vert-200: #27c826;
+  --color-vert-300: #1fb91e;
+  --color-vert-400: #19a018;
+  --color-vert-500: #128311;
+  --color-vert-600: #0a6b09;
+  --color-vert-700: #054f04;
+  --color-vert-800: #034002;
+  --color-vert-900: #012b00;
+
+  /* ---------- Fonts ---------- */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Montserrat", system-ui, sans-serif;
+
+  /* ---------- Neutre ---------- */
+  --color-neutre-50: #f6f6f6;
+  --color-neutre-100: #f2f2f2;
+  --color-neutre-200: #eaeaea;
+  --color-neutre-300: #dddddd;
+  --color-neutre-400: #d9d9d9;
+  --color-neutre-500: #cfcfcf;
+  --color-neutre-600: #c8c8c8;
+  --color-neutre-700: #c5c5c5;
+  --color-neutre-800: #b7b7b7;
+  --color-neutre-900: #acacac;
+}
+
+/* ============================================================
+   shadcn/ui semantic tokens — mapped onto the brand palette
+   ============================================================ */
+:root {
+  --radius: 0.625rem;
+
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  --primary: #d91e1e; /* rouge-500 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f2f2f2; /* neutre-100 */
+  --secondary-foreground: #1a1a1a;
+
+  --muted: #f2f2f2;
+  --muted-foreground: #6b6b6b;
+
+  --accent: #128311; /* vert-500 */
+  --accent-foreground: #ffffff;
+
+  --destructive: #700414; /* rouge-900 */
+  --destructive-foreground: #ffffff;
+
+  --border: #eaeaea; /* neutre-200 */
+  --input: #dddddd; /* neutre-300 */
+  --ring: #d91e1e;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f6f6f6;
+
+  --card: #232323;
+  --card-foreground: #f6f6f6;
+
+  --popover: #232323;
+  --popover-foreground: #f6f6f6;
+
+  --primary: #e72525; /* rouge-400 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #2a2a2a;
+  --secondary-foreground: #f6f6f6;
+
+  --muted: #2a2a2a;
+  --muted-foreground: #acacac;
+
+  --accent: #19a018; /* vert-400 */
+  --accent-foreground: #ffffff;
+
+  --destructive: #a8091c;
+  --destructive-foreground: #ffffff;
+
+  --border: #2e2e2e;
+  --input: #2e2e2e;
+  --ring: #e72525;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}

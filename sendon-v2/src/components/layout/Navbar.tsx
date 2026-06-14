@@ -1,0 +1,105 @@
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+const links = [
+  { label: "Accueil", href: "#hero" },
+  { label: "Comment ça marche", href: "#how" },
+  { label: "A propos", href: "#about" },
+  { label: "Contact", href: "#contact" },
+]
+
+export function Navbar() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="fixed top-5 left-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2">
+      {/* Pill flottante */}
+      <motion.div
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="flex items-center justify-between rounded-full bg-white/90 px-4 py-2.5 shadow-[0px_8px_32px_rgba(0,0,0,0.14)] backdrop-blur-md"
+      >
+        {/* Logo */}
+        <a href="#hero" className="flex items-center gap-2.5">
+          <img
+            src="/logo-sendon.png"
+            alt="SenDon"
+            className="h-10 w-auto object-contain"
+          />
+          <span className="font-display text-xl font-extrabold tracking-tight text-[#0c0a09]">
+            SenDon
+          </span>
+        </a>
+
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-7 lg:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="font-display text-[15px] font-semibold text-[#474747] transition-colors hover:text-rouge-500"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* CTA + burger */}
+        <div className="flex items-center gap-2">
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-[#c42b1c] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-rouge-600 hover:shadow-md md:inline-flex"
+          >
+            Télécharger l'app
+          </a>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className={cn(
+              "flex h-9 w-9 items-center justify-center rounded-full transition-colors lg:hidden",
+              open ? "bg-neutre-100 text-[#0c0a09]" : "text-[#474747] hover:bg-neutre-100"
+            )}
+            aria-label="Menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Mobile dropdown */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            className="mt-2 overflow-hidden rounded-2xl bg-white/95 p-4 shadow-[0px_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-md lg:hidden"
+          >
+            <div className="flex flex-col gap-1">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-4 py-2.5 font-display text-base font-semibold text-[#474747] transition-colors hover:bg-neutre-100"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-full bg-[#c42b1c] px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-rouge-600"
+              >
+                Télécharger l'application
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
