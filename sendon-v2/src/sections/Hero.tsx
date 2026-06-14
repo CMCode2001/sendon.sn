@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white pt-16 pb-10 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center"
+      className="relative overflow-hidden bg-white pt-20 pb-8 md:pt-24 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center"
     >
       {/* dot grid */}
       <div
@@ -29,7 +29,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rouge-200/60 to-transparent" />
 
       <Container className="relative lg:pr-0">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* ── Left ── */}
           <div className="flex flex-col gap-6">
             <motion.span
@@ -51,7 +51,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-display text-[44px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[56px] lg:text-[64px]"
+              className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]"
             >
               Donnez du sang,
               <br />
@@ -62,7 +62,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="max-w-[520px] text-lg font-light leading-[1.8] text-[#6b5f58]"
+              className="max-w-[520px] text-base font-light leading-[1.8] text-[#6b5f58] sm:text-lg"
             >
               SenDon connecte les donneurs aux hôpitaux du Sénégal en temps réel.
               Matching intelligent par IA, alertes SMS instantanées, 38 centres
@@ -99,7 +99,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative w-full"
+            className="relative w-full max-h-[340px] md:max-h-none"
           >
             {/* Mockup */}
             <motion.img

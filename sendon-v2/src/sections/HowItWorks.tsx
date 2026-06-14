@@ -34,7 +34,7 @@ export function HowItWorks() {
             {steps.map((s) => (
               <div
                 key={s.n}
-                className="group relative overflow-hidden bg-[#161616] px-8 py-10 transition-colors hover:bg-[#1a1a1a]"
+                className="group relative overflow-hidden bg-[#161616] px-5 py-8 transition-colors hover:bg-[#1a1a1a] md:px-8 md:py-10"
               >
                 <span className="pointer-events-none absolute right-4 top-3 font-display text-[72px] font-extrabold leading-none tracking-tighter text-rouge-400/[0.06]">
                   {s.n}

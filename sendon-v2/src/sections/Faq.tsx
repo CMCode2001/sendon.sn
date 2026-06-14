@@ -82,7 +82,7 @@ export function Faq() {
     <section className="bg-neutre-50 py-24">
       <Container>
         <Reveal>
-          <h2 className="text-center font-display text-[40px] font-extrabold tracking-tight text-[#0c0a09] sm:text-[52px] lg:text-[64px]">
+          <h2 className="text-center font-display text-[28px] font-extrabold tracking-tight text-[#0c0a09] sm:text-[40px] lg:text-[64px]">
             Questions <span className="text-rouge-400">fréquentes</span>
           </h2>
         </Reveal>

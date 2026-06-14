@@ -14,7 +14,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed top-5 left-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2">
+    <div className="fixed top-3 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2 md:top-5 md:w-[calc(100%-2rem)]">
       {/* Pill flottante */}
       <motion.div
         initial={{ y: -80, opacity: 0 }}
@@ -27,9 +27,9 @@ export function Navbar() {
           <img
             src="/logo-sendon.png"
             alt="SenDon"
-            className="h-10 w-auto object-contain"
+            className="h-8 w-auto object-contain md:h-10"
           />
-          <span className="font-display text-xl font-extrabold tracking-tight text-[#0c0a09]">
+          <span className="font-display text-lg font-extrabold tracking-tight text-[#0c0a09] md:text-xl">
             SenDon
           </span>
         </a>

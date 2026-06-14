@@ -34,7 +34,7 @@ export function Pourquoi() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:mt-14 lg:grid-cols-2">
           {blocks.map((b, i) => {
             const Icon = b.icon
             return (

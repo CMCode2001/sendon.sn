@@ -35,7 +35,7 @@ export function Ecosystem() {
         <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
           {cards.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.1}>
-              <div className="flex h-full flex-col rounded-[32px] border border-[#eae4dc] bg-white p-8">
+              <div className="flex h-full flex-col rounded-[24px] border border-[#eae4dc] bg-white p-5 md:rounded-[32px] md:p-8">
                 <div className="overflow-hidden rounded-2xl border border-[#eae4dc] bg-[#0c0a09]">
                   <img
                     src={c.img}

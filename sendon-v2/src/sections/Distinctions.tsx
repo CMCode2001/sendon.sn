@@ -38,7 +38,7 @@ export function Distinctions() {
         <div className="mt-12 grid grid-cols-1 gap-3.5 md:grid-cols-3">
           {awards.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.1}>
-              <div className="flex h-full flex-col gap-1.5 rounded-[20px] border border-neutre-300 bg-white p-7">
+              <div className="flex h-full flex-col gap-1.5 rounded-[20px] border border-neutre-300 bg-white p-5 md:p-7">
                 <img
                   src={a.logo}
                   alt={a.org}

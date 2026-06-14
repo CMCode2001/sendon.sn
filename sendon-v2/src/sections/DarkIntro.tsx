@@ -16,7 +16,7 @@ export function DarkIntro() {
       {/* red glow bottom-left */}
       <div className="pointer-events-none absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(231,37,37,0.22),transparent_60%)]" />
 
-      <Container className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <Container className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
         {/* Left — text */}
         <Reveal className="flex flex-col gap-6">
           <h2 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-[42px] lg:text-[50px]">

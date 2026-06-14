@@ -13,7 +13,7 @@ export function Cta() {
 
       <Container className="relative">
         <Reveal className="flex flex-col items-center text-center">
-          <h2 className="font-display text-[40px] font-extrabold leading-[1.05] tracking-tight text-white sm:text-[60px] lg:text-[78px]">
+          <h2 className="font-display text-[28px] font-extrabold leading-[1.05] tracking-tight text-white sm:text-[48px] lg:text-[78px]">
             Votre prochain don
             <br />
             peut sauver une vie.

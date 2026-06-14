@@ -74,7 +74,7 @@ export function Features() {
         <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
           {/* BIG dark card */}
           <Reveal className="lg:col-span-3">
-            <div className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[20px] bg-[#0c0a09] p-8">
+            <div className="relative flex min-h-[220px] flex-col overflow-hidden rounded-[20px] bg-[#0c0a09] p-5 md:min-h-[270px] md:p-8">
               <div className="relative z-10 max-w-[340px]">
                 <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-white">
                   Matching intelligent par groupe sanguin
@@ -110,7 +110,7 @@ export function Features() {
           {cards.map((c, i) => {
             return (
               <Reveal key={c.title} delay={(i % 3) * 0.08}>
-                <div className="flex h-full flex-col rounded-[20px] border border-[#eae4dc] bg-neutre-50 p-8 transition-shadow hover:shadow-md">
+                <div className="flex h-full flex-col rounded-[20px] border border-[#eae4dc] bg-neutre-50 p-5 transition-shadow hover:shadow-md md:p-8">
                   <span
                     className={`flex h-11 w-11 items-center justify-center rounded-full ${c.iconBg}`}
                   >
