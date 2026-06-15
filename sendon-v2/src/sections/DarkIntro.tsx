@@ -20,7 +20,7 @@ export function DarkIntro() {
     <VideoModal
       open={videoOpen}
       onClose={() => setVideoOpen(false)}
-      youtubeId="u-b8DrVHBjg"
+      youtubeId="TGE94iR5cdw"
     />
     <section className="relative overflow-hidden bg-[#0f0f0f] py-20 md:py-24">
       {/* red glow bottom-left */}
