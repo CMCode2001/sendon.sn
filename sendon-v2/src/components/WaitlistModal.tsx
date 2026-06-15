@@ -76,11 +76,14 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
                   Vous êtes sur la liste !
                 </h3>
                 <p className="mt-3 text-sm font-light leading-relaxed text-[#6b5f58]">
-                  On vous contactera en priorité dès que 
-                  <span className="text-black">Sen</span> 
-                  <span className="text-rouge-500">Don</span> 
-                  sera disponible.
-                  Merci de nous soutenir <img src="/assets/media/blood.gif" alt="" aria-hidden="true" className="inline h-3 w-3 object-contain" /> 
+                  On vous contactera en priorité dès que   
+                  <span className="text-black font-bold"> Sen</span> 
+                  <span className="text-rouge-500 font-bold">Don </span>  
+                  <br/>sera disponible.
+                  <br/>
+                  Merci de nous soutenir.
+                  {/* <br/> */}
+                  <img src="/assets/media/blood.gif" alt="" aria-hidden="true" className="inline h-4 w-4 object-contain" /> 
                 </p>
                 <button
                   onClick={handleClose}
