@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { WaitlistModal } from "@/components/WaitlistModal"
 
 const links = [
   { label: "Accueil", href: "#hero" },
@@ -12,8 +13,11 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
 
   return (
+    <>
+    <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     <div className="fixed top-3 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2 md:top-5 md:w-[calc(100%-2rem)]">
       {/* Pill flottante */}
       <motion.div
@@ -49,12 +53,12 @@ export function Navbar() {
 
         {/* CTA + burger */}
         <div className="flex items-center gap-2">
-          <a
-            href="#contact"
+          <button
+            onClick={() => setWaitlistOpen(true)}
             className="hidden rounded-full bg-[#c42b1c] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-rouge-600 hover:shadow-md md:inline-flex"
           >
-            Télécharger l'app
-          </a>
+            S'inscrire
+          </button>
           <button
             onClick={() => setOpen((v) => !v)}
             className={cn(
@@ -89,17 +93,17 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
+              <button
+                onClick={() => { setOpen(false); setWaitlistOpen(true) }}
                 className="mt-2 rounded-full bg-[#c42b1c] px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-rouge-600"
               >
-                Télécharger l'application
-              </a>
+                S'inscrire
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
+    </>
   )
 }
