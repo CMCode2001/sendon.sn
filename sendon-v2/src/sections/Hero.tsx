@@ -10,7 +10,7 @@ export function Hero() {
   const staticMotion = prefersStaticMotion()
   const [waitlistOpen, setWaitlistOpen] = useState(false)
 
-  const { text1, text2, showLine2, cursor1Visible, cursor2Visible } =
+  const { text1, text2, cursor1Visible, cursor2Visible } =
     useHeroTypewriter("Donnez du sang,", "Sauvez des vies.")
 
   return (
@@ -43,37 +43,18 @@ export function Hero() {
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* ── Left ── */}
             <div className="flex flex-col gap-6">
-              <motion.span
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex w-fit items-center gap-2 rounded-full border border-rouge-100/60 bg-rouge-50/10 px-4 py-1.5 text-[13px] font-semibold text-rouge-500"
-              >
-                <span className="relative flex h-2 w-2">
-                  {!staticMotion && (
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rouge-400 opacity-75" />
-                  )}
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-rouge-500" />
-                </span>
-                Partenaire Officiel CNTS
-              </motion.span>
-
               <h1 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]">
                 {text1}
                 {cursor1Visible && (
                   <span className="animate-pulse text-rouge-400">|</span>
                 )}
-                {showLine2 && (
-                  <>
-                    <br />
-                    <span className="text-[#c42b1c]">
-                      {text2}
-                      {cursor2Visible && (
-                        <span className="animate-pulse">|</span>
-                      )}
-                    </span>
-                  </>
-                )}
+                <br />
+                <span className="text-[#c42b1c]">
+                  {text2}
+                  {cursor2Visible && (
+                    <span className="animate-pulse">|</span>
+                  )}
+                </span>
               </h1>
 
               <motion.p
@@ -82,8 +63,7 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="max-w-[520px] text-base font-light leading-[1.8] text-[#6b5f58] sm:text-lg"
               >
-                SenDon connecte les donneurs aux hôpitaux du Sénégal en temps réel grace à la géolocalisation.
-                Matching intelligent par IA, alertes SMS instantanées,
+                Dans l'urgence, chaque seconde compte ! <br />SenDon connecte en temps réel les donneurs aux urgences hospitalières. Les vrais héros, mobilisés au bon moment.
               </motion.p>
 
               <motion.div

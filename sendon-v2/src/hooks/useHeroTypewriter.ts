@@ -28,6 +28,8 @@ export function useHeroTypewriter(line1: string, line2: string) {
         break
 
       case "hold":
+        // Immediate phase transition, not derived from this effect's own state.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPhase("deleting2")
         break
 

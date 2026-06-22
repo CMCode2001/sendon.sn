@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils"
 const faqs = [
   {
     q: "Qui peut donner du sang ?",
-    a: "Toute personne de 18 à 65 ans, pesant plus de 50 kg et en bonne santé. SenDon vérifie votre éligibilité automatiquement et calcule votre prochaine date de don disponible.",
+    a: "Toute personne de 18 à 60 ans, pesant plus de 50 kg, en bonne santé et munie d'une carte d'identité nationale. SenDon vérifie votre éligibilité automatiquement et calcule votre prochaine date de don disponible.",
   },
   {
     q: "À quelle fréquence puis-je donner ?",
-    a: "Les hommes peuvent donner jusqu'à 4 fois par an et les femmes jusqu'à 3 fois, en respectant un intervalle minimum de 8 semaines entre deux dons. SenDon suit automatiquement votre éligibilité.",
+    a: "Les hommes peuvent donner tous les 3 mois, les femmes tous les 4 mois. SenDon suit automatiquement votre éligibilité et vous prévient dès que vous pouvez donner à nouveau.",
   },
   {
     q: "Est-ce dangereux de donner son sang ?",
@@ -21,6 +21,14 @@ const faqs = [
   {
     q: "Comment sont protégées mes données médicales ?",
     a: "Vos données sont hébergées au Sénégal, chiffrées et conformes à la loi 2008-12 sur la protection des données personnelles. Elles ne quittent jamais le pays et ne sont jamais revendues.",
+  },
+  {
+    q: "Le don coûte-t-il quelque chose ?",
+    a: "Non, le don de sang est entièrement gratuit au Sénégal. Aucune contrepartie financière n'est exigée du donneur.",
+  },
+  {
+    q: "Vais-je recevoir une carte donneur physique ?",
+    a: "Oui. Après votre 2ᵉ don, le CNTS délivre une carte mentionnant votre groupe sanguin. Avec SenDon, cette information est aussi disponible en version numérique dès votre premier don.",
   },
   {
     q: "Puis-je utiliser SenDon sans smartphone ?",
