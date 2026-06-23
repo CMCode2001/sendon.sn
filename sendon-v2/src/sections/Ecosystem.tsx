@@ -4,20 +4,20 @@ import { Reveal } from "@/components/Reveal"
 const cards = [
   {
     img: "/assets/eco-app.png",
-    title: "Application Mobile",
-    body: "Une interface intuitive pour s'inscrire, recevoir des alertes en temps réel et suivre son impact.",
+    title: "Votre poche, votre impact",
+    body: "S'inscrire, recevoir l'alerte au bon moment, suivre chaque don : tout se passe depuis votre téléphone.",
     tag: "POUR LES DONNEURS",
   },
   {
     img: "/assets/eco-cnts.png",
-    title: "Portail CNTS",
-    body: "Un tableau de bord centralisé pour piloter les stocks de sang au niveau national et coordonner les collectes.",
+    title: "Le pouls du sang, en temps réel",
+    body: "Un tableau de bord centralisé pour piloter les stocks à l'échelle nationale et coordonner les collectes là où elles sont nécessaires.",
     tag: "GESTION NATIONALE",
   },
   {
     img: "/assets/eco-hopitaux.png",
-    title: "Interface Hôpitaux",
-    body: "Une plateforme dédiée aux établissements pour émettre des demandes urgentes et trouver des donneurs compatibles en quelques secondes.",
+    title: "L'urgence sans la course contre le temps",
+    body: "Une plateforme dédiée aux établissements pour lancer une demande et trouver un donneur compatible en quelques secondes.",
     tag: "URGENCES",
   },
 ]
@@ -28,7 +28,7 @@ export function Ecosystem() {
       <Container>
         <Reveal>
           <h2 className="text-center font-display text-[34px] font-bold tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
-            Un écosystème complet
+            Trois interfaces, une seule mission.
           </h2>
         </Reveal>
 

@@ -18,6 +18,12 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
     setStatus("loading")
     setErrorMsg("")
 
+    if (!supabase) {
+      setErrorMsg("Mode local : Supabase n'est pas configuré. Inscrivez vos clés dans le fichier .env pour activer cette fonctionnalité.")
+      setStatus("error")
+      return
+    }
+
     const { error } = await supabase.from("sendon_waitlist").insert([
       { prenom: form.prenom.trim(), nom: form.nom.trim(), email: form.email.trim() },
     ])

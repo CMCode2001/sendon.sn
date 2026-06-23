@@ -68,7 +68,7 @@ export function Navbar() {
             onClick={() => setWaitlistOpen(true)}
             className="hidden rounded-full bg-[#c42b1c] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-rouge-600 hover:shadow-md md:inline-flex"
           >
-            S'inscrire
+            Rejoindre la waitlist
           </button>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -119,7 +119,7 @@ export function Navbar() {
                 onClick={() => { setOpen(false); setWaitlistOpen(true) }}
                 className="mt-2 rounded-full bg-[#c42b1c] px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-rouge-600"
               >
-                S'inscrire
+                Rejoindre la waitlist
               </button>
             </div>
           </motion.div>

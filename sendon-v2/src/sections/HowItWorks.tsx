@@ -4,18 +4,18 @@ import { Reveal } from "@/components/Reveal"
 const steps = [
   {
     n: "01",
-    title: "Inscrivez-vous",
-    body: "Profil créé en 2 minutes. Groupe sanguin, localisation, préférences de notification. Éligibilité calculée automatiquement.",
+    title: "Créez votre profil donneur",
+    body: "Groupe sanguin, localisation, préférences de notification : votre profil est prêt en 2 minutes, éligibilité vérifiée automatiquement.",
   },
   {
     n: "02",
-    title: "Recevez l'alerte",
-    body: "SenDon-AI vous alerte en temps réel quand un hôpital proche a besoin de votre groupe. SMS, push ou WhatsApp — votre choix.",
+    title: "Recevez l'appel au bon moment",
+    body: "Dès qu'un hôpital proche a besoin de votre groupe sanguin, vous êtes alerté en temps réel, par SMS, notification ou WhatsApp, selon votre choix.",
   },
   {
     n: "03",
-    title: "Donnez et sauvez",
-    body: "Rendez-vous au centre en 45 min. Certificat numérique, impact mesuré, badge débloqué. Chaque don compte vraiment.",
+    title: "Donnez, et voyez l'impact",
+    body: "Rendez-vous au centre le plus proche. Certificat numérique, suivi de votre impact, badge débloqué : chaque don laisse une trace concrète.",
   },
 ]
 

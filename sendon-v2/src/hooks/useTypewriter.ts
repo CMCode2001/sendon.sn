@@ -5,6 +5,9 @@ export function useTypewriter(text: string, speed = 45, startDelay = 400) {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
+    // Reset on text/speed/startDelay change: this effect re-runs the
+    // animation from scratch, it does not cascade off its own state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDisplayed("")
     setDone(false)
     let i = 0

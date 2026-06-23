@@ -12,38 +12,38 @@ const cards = [
   {
     icon: "/assets/icons/icon-alertes.png",
     iconBg: "bg-[rgba(255,152,26,0.15)]",
-    title: "Alertes multi-canaux",
-    body: "SMS, push, WhatsApp. Même hors connexion, aucune urgence n'est manquée.",
+    title: "On vous trouve, où que vous soyez.",
+    body: "SMS, notification, WhatsApp : l'alerte arrive par le canal qui marche, même sans connexion.",
   },
   {
     icon: "/assets/icons/icon-donnees.png",
     iconBg: "bg-[#e6f5ee]",
-    title: "Données souveraines",
-    body: "Hébergées au Sénégal. Conformes loi 2008-12. Vos données ne quittent pas le pays.",
+    title: "Vos données restent chez vous.",
+    body: "Hébergées au Sénégal, protégées par la loi 2008-12. Aucune donnée de santé ne sort du pays.",
   },
   {
     icon: "/assets/icons/icon-geolocalisation.png",
     iconBg: "bg-[#e5f1f8]",
-    title: "Géolocalisation",
-    body: "38 centres sur carte, itinéraire intégré, horaires en temps réel.",
+    title: "Le centre le plus proche, en un coup d'œil.",
+    body: "Carte des centres de don, itinéraire et horaires en temps réel : plus besoin de chercher, juste d'y aller.",
   },
   {
     icon: "/assets/icons/icon-badge.png",
     iconBg: "bg-[#f1ede7]",
-    title: "Badges & gamification",
-    body: "Récompenses pour chaque don. Progression visible, communauté engagée.",
+    title: "Donner du sang, ça se fête.",
+    body: "Chaque don compte et se voit : badges, progression, communauté de donneurs engagés.",
   },
   {
     icon: "/assets/icons/icon-qr.png",
     iconBg: "bg-[#fdecea]",
-    title: "Carte donneur numérique",
-    body: "QR code certifié, accessible hors ligne. Partageable avec les équipes médicales. Contient groupe sanguin, historique et statut d'éligibilité.",
+    title: "Votre carte donneur, toujours sur vous.",
+    body: "QR code certifié, lisible hors ligne, partageable avec les équipes médicales. Groupe sanguin, historique et éligibilité en un scan.",
   },
   {
     icon: "/assets/icons/icon-proches.png",
     iconBg: "bg-[rgba(207,132,48,0.13)]",
-    title: "Ajouter ses proches",
-    body: "La fonctionnalité ajouter ses proches à contacter en cas d'urgence.",
+    title: "Vos proches, prévenus avant la panique.",
+    body: "Désignez les contacts à alerter en cas d'urgence. Personne ne cherche un numéro au pire moment.",
   },
 ]
 
@@ -63,11 +63,12 @@ export function Features() {
       <Container className="relative">
         <Reveal>
           <h2 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
-            Tout ce qu'il faut. <span className="text-rouge-400">Rien de plus.</span>
+            Pensé pour l'essentiel. <span className="text-rouge-400">Conçu pour l'urgence.</span>
           </h2>
           <p className="mt-4 max-w-[540px] text-[14.5px] font-light leading-relaxed text-[#6b5f58]">
-            Conçu pour les contextes africains. Rapide sur 3G, mode offline,
-            multilingue, données souveraines.
+            Pas d'usine à gaz. Juste les outils qui sauvent du temps, et donc
+            des vies : rapides sur 3G, utilisables hors ligne, disponibles en
+            plusieurs langues.
           </p>
         </Reveal>
 
@@ -77,12 +78,12 @@ export function Features() {
             <div className="relative flex min-h-[220px] flex-col overflow-hidden rounded-[20px] bg-[#0c0a09] p-5 md:min-h-[270px] md:p-8">
               <div className="relative z-10 max-w-[340px]">
                 <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-white">
-                  Matching intelligent par groupe sanguin
+                  Le bon sang, au bon endroit, à la seconde près.
                 </h3>
                 <p className="mt-3 text-[13.5px] font-light leading-relaxed text-white/50">
-                  Notre IA analyse en temps réel les besoins hospitaliers et la
-                  disponibilité des donneurs pour déclencher le bon match en
-                  millisecondes.
+                  Notre IA croise en continu les besoins des hôpitaux et la
+                  disponibilité des donneurs pour déclencher le match parfait
+                  avant même que l'urgence n'explose.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {pills.map((p) => (

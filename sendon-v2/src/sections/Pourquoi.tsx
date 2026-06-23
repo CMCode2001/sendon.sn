@@ -1,4 +1,4 @@
-import { Droplet, FileText } from "lucide-react"
+import { Droplet, FileText, Clock } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Reveal } from "@/components/Reveal"
 
@@ -6,17 +6,23 @@ const blocks = [
   {
     icon: Droplet,
     iconClass: "border-rouge-100 text-rouge-400",
-    title: "Le sang manque, et il manque au mauvais moment.",
-    body: "Chaque année au Sénégal, des patients attendent une transfusion qui n'arrive pas à temps : accouchements compliqués, accidents de la route, drépanocytose, interventions chirurgicales. Le besoin est constant. L'offre, elle, reste largement insuffisante face aux recommandations sanitaires internationales.",
+    title: "Chaque jour, 100 poches de sang manquent à l'appel.",
+    body: "Le Sénégal a besoin de 300 poches de sang par jour, mais seules 200 sont distribuées. Il manque chaque année 50 000 à 55 000 dons pour atteindre le seuil recommandé par l'OMS, fixé à 10 donneurs pour 1 000 habitants. Le pays plafonne encore à 7,33 dons en 2024.",
     quote: null,
   },
   {
     icon: FileText,
     iconClass: "border-vert-300/40 text-vert-500",
-    title: "Des registres papier, aucune visibilité partagée.",
-    body: "Les informations sur les donneurs — groupe sanguin, dernière date de don, coordonnées — vivaient dans des cahiers, des fichiers Excel isolés ou la mémoire du personnel soignant. Aucun hôpital ne pouvait savoir, en temps réel, qui était disponible et éligible à proximité. À cela s'ajoutaient des freins culturels : peur de l'aiguille, croyances sur la revente du sang, manque d'information fiable sur l'innocuité du don.",
-    quote:
-      "« On ne savait jamais vraiment combien de donneurs compatibles existaient autour de nous — seulement ceux qu'on arrivait à joindre. »",
+    title: "Le don existe. L'information, elle, se perd.",
+    body: "Groupe sanguin, dernière date de don, coordonnées : ces informations vivent encore dans des cahiers ou des fichiers isolés. Aucune structure ne peut savoir, en temps réel, qui est disponible à proximité. S'ajoutent à cela des freins culturels documentés : peur de l'aiguille, croyances sur la revente du sang, manque d'information sur l'innocuité du don.",
+    quote: null,
+  },
+  {
+    icon: Clock,
+    iconClass: "border-rouge-100 text-rouge-400",
+    title: "L'urgence n'attend pas le bon réseau.",
+    body: "20 à 30 % des dons au Sénégal proviennent encore de donneurs familiaux mobilisés en urgence, faute d'un système capable d'anticiper les besoins. Le don de sang reste une réaction de dernière minute, plutôt qu'une chaîne organisée.",
+    quote: null,
   },
 ]
 
@@ -34,7 +40,7 @@ export function Pourquoi() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:mt-14 lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:mt-14 lg:grid-cols-3">
           {blocks.map((b, i) => {
             const Icon = b.icon
             return (
