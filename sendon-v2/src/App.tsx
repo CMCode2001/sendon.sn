@@ -1,11 +1,9 @@
 import { lazy, Suspense, useState, useCallback } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/sections/Hero"
 import { ScrollToTop } from "@/components/ScrollToTop"
 import { Footer } from "@/components/layout/Footer"
 import { SplashScreen } from "@/components/SplashScreen"
-import Contact from "@/pages/Contact"
 
 const DarkIntro    = lazy(() => import("@/sections/DarkIntro").then(m => ({ default: m.DarkIntro })))
 const Pourquoi     = lazy(() => import("@/sections/Pourquoi").then(m => ({ default: m.Pourquoi })))
@@ -17,8 +15,9 @@ const Distinctions = lazy(() => import("@/sections/Distinctions").then(m => ({ d
 const Partners     = lazy(() => import("@/sections/Partners").then(m => ({ default: m.Partners })))
 const Faq          = lazy(() => import("@/sections/Faq").then(m => ({ default: m.Faq })))
 const Cta          = lazy(() => import("@/sections/Cta").then(m => ({ default: m.Cta })))
+const Contact      = lazy(() => import("@/sections/Contact").then(m => ({ default: m.Contact })))
 
-function Home() {
+export default function App() {
   const [splashDone, setSplashDone] = useState(false)
   const handleDone = useCallback(() => setSplashDone(true), [])
 
@@ -41,21 +40,11 @@ function Home() {
             <Partners />
             <Faq />
             <Cta />
+            <Contact />
           </Suspense>
         </main>
         <Footer />
       </div>
     </>
-  )
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
   )
 }

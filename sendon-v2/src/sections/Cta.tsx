@@ -12,7 +12,7 @@ export function Cta() {
       <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
 
       <section
-        id="contact"
+        id="cta"
         className="relative overflow-hidden bg-rouge-400 py-24 md:py-28"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_45%,rgba(255,255,255,0.08),transparent)]" />

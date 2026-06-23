@@ -1,5 +1,4 @@
 import { Mail, MapPin, Phone } from "lucide-react"
-import { Link } from "react-router-dom"
 import { Container } from "./Container"
 
 const columns = [
@@ -49,21 +48,12 @@ export function Footer() {
               <ul className="mt-4 flex flex-col gap-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    {l === "Contact" ? (
-                      <Link
-                        to="/contact"
-                        className="text-sm font-light text-white/50 transition-colors hover:text-rouge-200"
-                      >
-                        {l}
-                      </Link>
-                    ) : (
-                      <a
-                        href="#"
-                        className="text-sm font-light text-white/50 transition-colors hover:text-rouge-200"
-                      >
-                        {l}
-                      </a>
-                    )}
+                    <a
+                      href={l === "Contact" ? "#contact" : "#"}
+                      className="text-sm font-light text-white/50 transition-colors hover:text-rouge-200"
+                    >
+                      {l}
+                    </a>
                   </li>
                 ))}
               </ul>
