@@ -100,7 +100,7 @@ export function WaitlistModal({ open, onClose }: WaitlistModalProps) {
                     Bientôt disponible
                   </span>
                   <h3 className="mt-3 font-display text-[22px] font-bold leading-snug text-[#0c0a09]">
-                    Rejoins la waitlist SenDon
+                    Rejoins SenDon
                   </h3>
                   <p className="mt-1.5 text-sm font-light text-[#6b5f58]">
                     Sois parmi les premiers à accéder à l'application dès son lancement.

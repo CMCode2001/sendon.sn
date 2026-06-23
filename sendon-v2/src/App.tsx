@@ -1,9 +1,11 @@
 import { lazy, Suspense, useState, useCallback } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/sections/Hero"
 import { ScrollToTop } from "@/components/ScrollToTop"
 import { Footer } from "@/components/layout/Footer"
 import { SplashScreen } from "@/components/SplashScreen"
+import Contact from "@/pages/Contact"
 
 const DarkIntro    = lazy(() => import("@/sections/DarkIntro").then(m => ({ default: m.DarkIntro })))
 const Pourquoi     = lazy(() => import("@/sections/Pourquoi").then(m => ({ default: m.Pourquoi })))
@@ -16,14 +18,13 @@ const Partners     = lazy(() => import("@/sections/Partners").then(m => ({ defau
 const Faq          = lazy(() => import("@/sections/Faq").then(m => ({ default: m.Faq })))
 const Cta          = lazy(() => import("@/sections/Cta").then(m => ({ default: m.Cta })))
 
-function App() {
+function Home() {
   const [splashDone, setSplashDone] = useState(false)
   const handleDone = useCallback(() => setSplashDone(true), [])
 
   return (
     <>
       {!splashDone && <SplashScreen onDone={handleDone} />}
-
       <div className="min-h-screen bg-white">
         <Navbar />
         <ScrollToTop />
@@ -48,4 +49,13 @@ function App() {
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}

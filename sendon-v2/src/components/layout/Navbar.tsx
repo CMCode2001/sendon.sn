@@ -1,14 +1,15 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { WaitlistModal } from "@/components/WaitlistModal"
 
 const links = [
-  { label: "Accueil", href: "#hero" },
-  { label: "Comment ça marche", href: "#how" },
-  { label: "A propos", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Accueil", href: "#hero", to: null },
+  { label: "Comment ça marche", href: "#how", to: null },
+  { label: "À propos", href: "#about", to: null },
+  { label: "Contact", href: null, to: "/contact" },
 ]
 
 export function Navbar() {
@@ -40,15 +41,25 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-7 lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-display text-[15px] font-semibold text-[#474747] transition-colors hover:text-rouge-500"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.to ? (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="font-display text-[15px] font-semibold text-[#474747] transition-colors hover:text-rouge-500"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href!}
+                className="font-display text-[15px] font-semibold text-[#474747] transition-colors hover:text-rouge-500"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </nav>
 
         {/* CTA + burger */}
@@ -83,16 +94,27 @@ export function Navbar() {
             className="mt-2 overflow-hidden rounded-2xl bg-white/95 p-4 shadow-[0px_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-md lg:hidden"
           >
             <div className="flex flex-col gap-1">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-2.5 font-display text-base font-semibold text-[#474747] transition-colors hover:bg-neutre-100"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {links.map((l) =>
+                l.to ? (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-2.5 font-display text-base font-semibold text-[#474747] transition-colors hover:bg-neutre-100"
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={l.href}
+                    href={l.href!}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-2.5 font-display text-base font-semibold text-[#474747] transition-colors hover:bg-neutre-100"
+                  >
+                    {l.label}
+                  </a>
+                )
+              )}
               <button
                 onClick={() => { setOpen(false); setWaitlistOpen(true) }}
                 className="mt-2 rounded-full bg-[#c42b1c] px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-rouge-600"
