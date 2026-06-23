@@ -19,7 +19,7 @@ export function Hero() {
 
       <section
         id="hero"
-        className="relative overflow-hidden bg-white pt-20 pb-8 md:pt-24 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center"
+        className="relative overflow-hidden bg-white pt-12 pb-8 md:pt-16 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center"
       >
         {/* dot grid */}
         <div
