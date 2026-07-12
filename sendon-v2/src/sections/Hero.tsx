@@ -6,12 +6,15 @@ import { prefersStaticMotion } from "@/lib/motion"
 import { useHeroTypewriter } from "@/hooks/useHeroTypewriter"
 import { WaitlistModal } from "@/components/WaitlistModal"
 
+const LINE1 = "Donnez du sang,"
+const LINE2 = "Sauvez des vies."
+
 export function Hero() {
   const staticMotion = prefersStaticMotion()
   const [waitlistOpen, setWaitlistOpen] = useState(false)
 
   const { text1, text2, cursor1Visible, cursor2Visible } =
-    useHeroTypewriter("Donnez du sang,", "Sauvez des vies.")
+    useHeroTypewriter(LINE1, LINE2)
 
   return (
     <>
@@ -19,7 +22,7 @@ export function Hero() {
 
       <section
         id="hero"
-        className="relative overflow-hidden bg-white pt-12 pb-8 md:pt-16 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center"
+        className="relative overflow-hidden bg-white pt-28 pb-8 md:pt-32 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center lg:pt-16"
       >
         {/* dot grid */}
         <div
@@ -43,17 +46,28 @@ export function Hero() {
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* ── Left ── */}
             <div className="flex flex-col gap-6">
-              <h1 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]">
-                {text1}
-                {cursor1Visible && (
-                  <span className="animate-pulse text-rouge-400">|</span>
-                )}
-                <br />
-                <span className="text-[#c42b1c]">
-                  {text2}
-                  {cursor2Visible && (
-                    <span className="animate-pulse">|</span>
+              <h1 className="relative font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-[#0c0a09] sm:text-[44px] lg:text-[64px]">
+                {/* Placeholder invisible : réserve la hauteur/largeur du texte
+                    final pour empêcher tout décalage de mise en page pendant
+                    l'animation. */}
+                <span aria-hidden className="invisible">
+                  {LINE1}
+                  <br />
+                  {LINE2}
+                </span>
+                {/* Texte animé superposé, sans impact sur le flux */}
+                <span className="absolute inset-0">
+                  {text1}
+                  {cursor1Visible && (
+                    <span className="animate-pulse text-rouge-400">|</span>
                   )}
+                  <br />
+                  <span className="text-[#c42b1c]">
+                    {text2}
+                    {cursor2Visible && (
+                      <span className="animate-pulse">|</span>
+                    )}
+                  </span>
                 </span>
               </h1>
 
@@ -70,11 +84,11 @@ export function Hero() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-wrap items-center gap-3 pt-2"
+                className="flex w-full flex-col items-stretch gap-3 pt-2 sm:w-auto sm:flex-row sm:items-center"
               >
                 <button
                   onClick={() => setWaitlistOpen(true)}
-                  className="group inline-flex h-[49px] items-center gap-2 rounded-[25px] bg-rouge-400 px-7 text-[15px] font-semibold text-neutre-50 transition-all hover:bg-rouge-500 hover:shadow-lg hover:shadow-rouge-400/30"
+                  className="group inline-flex h-[49px] w-full items-center justify-center gap-2 rounded-[25px] bg-rouge-400 px-7 text-[15px] font-semibold text-neutre-50 transition-all hover:bg-rouge-500 hover:shadow-lg hover:shadow-rouge-400/30 sm:w-auto"
                 >
                   Rejoindre SenDon
                   <ArrowRight
@@ -84,7 +98,7 @@ export function Hero() {
                 </button>
                 <a
                   href="#features"
-                  className="inline-flex h-[49px] items-center rounded-[34px] border border-neutre-200 bg-white px-7 text-[15px] font-semibold text-[#0b0b0b] transition-colors hover:bg-neutre-50"
+                  className="inline-flex h-[49px] w-full items-center justify-center rounded-[34px] border border-neutre-200 bg-white px-7 text-[15px] font-semibold text-[#0b0b0b] transition-colors hover:bg-neutre-50 sm:w-auto"
                 >
                   Voir l'application
                 </a>
