@@ -75,8 +75,14 @@ export function Features() {
         <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
           {/* BIG dark card */}
           <Reveal className="lg:col-span-3">
-            <div className="relative flex min-h-[220px] flex-col overflow-hidden rounded-[20px] bg-[#0c0a09] p-5 md:min-h-[270px] md:p-8">
-              <div className="relative z-10 max-w-[340px]">
+            <div className="relative min-h-[220px] md:min-h-[270px] lg:min-h-[290px]">
+              {/* Fond sombre arrondi (clippé pour contenir le glow) */}
+              <div className="absolute inset-0 overflow-hidden rounded-[20px] bg-[#0c0a09]">
+                <div className="pointer-events-none absolute right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-rouge-500/20 blur-[100px]" />
+              </div>
+
+              {/* Contenu */}
+              <div className="relative z-10 max-w-[340px] p-5 md:px-8 md:py-6">
                 <h3 className="font-display text-[22px] font-bold leading-tight tracking-tight text-white">
                   Le bon sang, au bon endroit, à la seconde près.
                 </h3>
@@ -85,7 +91,7 @@ export function Features() {
                   disponibilité des donneurs pour déclencher le match parfait
                   avant même que l'urgence n'explose.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {pills.map((p) => (
                     <span
                       key={p}
@@ -96,14 +102,14 @@ export function Features() {
                   ))}
                 </div>
               </div>
-              {/* phone mockup */}
+
+              {/* Mockup téléphones — ancré en bas, ressort au-dessus de la carte
+                  (effet « bleed » : le haut des téléphones dépasse le cadre) */}
               <img
                 src="/assets/bento-mockup.png"
                 alt="Application SenDon — matching IA"
-                className="pointer-events-none absolute right-0 top-1/2 hidden w-[460px] max-w-none -translate-y-1/2 object-contain md:block lg:right-8"
+                className="pointer-events-none absolute -bottom-8 -right-16 z-20 hidden w-[650px] max-w-none object-contain md:block lg:-bottom-16 lg:-right-28 lg:w-[790px]"
               />
-              {/* glow */}
-              <div className="pointer-events-none absolute right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-rouge-500/20 blur-[100px]" />
             </div>
           </Reveal>
 
