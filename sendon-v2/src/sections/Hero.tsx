@@ -3,7 +3,6 @@ import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-mot
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Parallax } from "@/components/Parallax"
-import { HeroPulse } from "@/components/HeroPulse"
 import { prefersStaticMotion } from "@/lib/motion"
 import { useHeroTypewriter } from "@/hooks/useHeroTypewriter"
 import { WaitlistModal } from "@/components/WaitlistModal"
@@ -70,9 +69,6 @@ export function Hero() {
             }}
           />
         )}
-
-        {/* Ligne ECG animée */}
-        <HeroPulse />
 
         {/* blob gauche bas — atténué */}
         <div className="pointer-events-none absolute -bottom-[10%] left-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(231,37,37,0.07),transparent_65%)] blur-[40px]" />

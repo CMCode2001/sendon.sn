@@ -1,10 +1,8 @@
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin"
-import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 
-gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MotionPathPlugin)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 /**
  * Trigger positions are measured once at creation. Lazy-loaded sections and
@@ -21,4 +19,4 @@ if (typeof window !== "undefined") {
   document.fonts?.ready.then(() => ScrollTrigger.refresh())
 }
 
-export { gsap, ScrollTrigger, SplitText, DrawSVGPlugin, MotionPathPlugin }
+export { gsap, ScrollTrigger, SplitText }
