@@ -18,15 +18,70 @@ const coords = [
   { icon: MapPin,label: "ADRESSE",   value: "Dakar, Sénégal",     href: null },
 ]
 
+// Access Key Web3Forms (destinataire = support@sendon.sn).
+// Clé PUBLIQUE par nature (elle vit dans le bundle frontend) : sans danger dans le repo.
+// Surchargeable via .env : VITE_WEB3FORMS_ACCESS_KEY=...
+const WEB3FORMS_KEY =
+  (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined) ||
+  "39023882-3dbb-4b7a-a39b-81c61adf6680"
+
 export function Contact() {
   const [form, setForm] = useState({ nom: "", email: "", sujet: "", message: "" })
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus("loading")
-    await new Promise((r) => setTimeout(r, 1200))
-    setStatus("success")
+    setErrorMsg("")
+
+    if (!WEB3FORMS_KEY) {
+      setErrorMsg(
+        "Envoi non configuré : la clé VITE_WEB3FORMS_ACCESS_KEY est absente. Renseigne-la dans le fichier .env."
+      )
+      setStatus("error")
+      return
+    }
+
+    // Anti-spam honeypot : si rempli (par un bot), on simule un succès sans envoyer.
+    const honeypot = (e.currentTarget as HTMLFormElement).botcheck as unknown as
+      | HTMLInputElement
+      | undefined
+    if (honeypot?.checked) {
+      setStatus("success")
+      return
+    }
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Nouveau message SenDon — ${form.sujet || "Contact"} — ${form.nom}`,
+          from_name: "Formulaire de contact SenDon",
+          // Web3Forms utilise le champ "email" comme adresse de réponse (reply-to)
+          name: form.nom.trim(),
+          email: form.email.trim(),
+          sujet: form.sujet,
+          message: form.message.trim(),
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus("success")
+      } else {
+        setErrorMsg(
+          typeof data.message === "string"
+            ? data.message
+            : "L'envoi a échoué. Réessaie dans un instant."
+        )
+        setStatus("error")
+      }
+    } catch {
+      setErrorMsg("Impossible d'envoyer le message. Vérifie ta connexion et réessaie.")
+      setStatus("error")
+    }
   }
 
   const field =
@@ -86,6 +141,15 @@ export function Contact() {
                     Envoyez-nous un message
                   </h3>
                   <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5">
+                    {/* Honeypot anti-spam : masqué aux humains, rempli par les bots */}
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                    />
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[13px] font-semibold text-[#0c0a09]">Nom complet</label>
@@ -129,6 +193,12 @@ export function Contact() {
                         className={`${field} resize-none py-3.5`}
                       />
                     </div>
+
+                    {status === "error" && (
+                      <p className="rounded-[12px] bg-rouge-50/60 px-4 py-3 text-[13px] font-medium text-rouge-500">
+                        {errorMsg}
+                      </p>
+                    )}
 
                     <button
                       type="submit" disabled={status === "loading"}
