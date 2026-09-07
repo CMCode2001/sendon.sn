@@ -2,6 +2,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/Container"
+import { Parallax } from "@/components/Parallax"
 import { prefersStaticMotion } from "@/lib/motion"
 import { useHeroTypewriter } from "@/hooks/useHeroTypewriter"
 import { WaitlistModal } from "@/components/WaitlistModal"
@@ -112,19 +113,21 @@ export function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="relative w-full max-h-[340px] md:max-h-none"
             >
-              <motion.img
-                src="/assets/phone-visual-hero.png"
-                alt="Application SenDon — carte donneur et centres de don"
-                className="w-full object-contain"
-                {...(!staticMotion && {
-                  animate: { y: [0, -12, 0] },
-                  transition: {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                })}
-              />
+              <Parallax amount={-50}>
+                <motion.img
+                  src="/assets/phone-visual-hero.png"
+                  alt="Application SenDon — carte donneur et centres de don"
+                  className="w-full object-contain"
+                  {...(!staticMotion && {
+                    animate: { y: [0, -12, 0] },
+                    transition: {
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    },
+                  })}
+                />
+              </Parallax>
             </motion.div>
           </div>
         </Container>

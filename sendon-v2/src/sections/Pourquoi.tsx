@@ -1,5 +1,6 @@
 import { Droplet, FileText, Clock } from "lucide-react"
 import { Container } from "@/components/layout/Container"
+import { SplitHeading } from "@/components/SplitHeading"
 import { Reveal } from "@/components/Reveal"
 
 const blocks = [
@@ -30,15 +31,17 @@ export function Pourquoi() {
   return (
     <section id="about" className="bg-neutre-50 py-20 md:py-24">
       <Container>
-        <Reveal className="max-w-[620px]">
-          <h2 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
+        <div className="max-w-[620px]">
+          <SplitHeading className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
             Pourquoi SenDon devait exister.
-          </h2>
-          <p className="mt-3 text-[17px] font-light leading-relaxed text-[#6b5f58]">
-            Une décennie de retard accumulé, et une équipe qui a décidé d'y
-            répondre.
-          </p>
-        </Reveal>
+          </SplitHeading>
+          <Reveal delay={0.2}>
+            <p className="mt-3 text-[17px] font-light leading-relaxed text-[#6b5f58]">
+              Une décennie de retard accumulé, et une équipe qui a décidé d'y
+              répondre.
+            </p>
+          </Reveal>
+        </div>
 
         <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 md:mt-14 lg:grid-cols-3">
           {blocks.map((b, i) => {

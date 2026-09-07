@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container"
+import { SplitHeading } from "@/components/SplitHeading"
 import { Reveal } from "@/components/Reveal"
 import { TiltCard } from "@/components/TiltCard"
 
@@ -62,10 +63,10 @@ export function Features() {
         }}
       />
       <Container className="relative">
-        <Reveal>
-          <h2 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
-            Pensé pour l'essentiel. <span className="text-rouge-400">Conçu pour l'urgence.</span>
-          </h2>
+        <SplitHeading className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
+          Pensé pour l'essentiel. <span className="text-rouge-400">Conçu pour l'urgence.</span>
+        </SplitHeading>
+        <Reveal delay={0.15}>
           <p className="mt-4 max-w-[540px] text-[14.5px] font-light leading-relaxed text-[#6b5f58]">
             Pas d'usine à gaz. Juste les outils qui sauvent du temps, et donc
             des vies : rapides sur 3G, utilisables hors ligne, disponibles en

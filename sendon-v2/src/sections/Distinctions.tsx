@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container"
+import { SplitHeading } from "@/components/SplitHeading"
 import { Reveal } from "@/components/Reveal"
 import { TiltCard } from "@/components/TiltCard"
 
@@ -30,11 +31,9 @@ export function Distinctions() {
   return (
     <section className="bg-white py-20 md:py-24">
       <Container>
-        <Reveal>
-          <h2 className="text-center font-display text-[34px] font-bold tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
-            Reconnu pour <span className="text-[#c42b1c]">l'excellence</span>
-          </h2>
-        </Reveal>
+        <SplitHeading className="text-center font-display text-[34px] font-bold tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
+          Reconnu pour <span className="text-[#c42b1c]">l'excellence</span>
+        </SplitHeading>
 
         <div className="mt-12 grid grid-cols-1 gap-3.5 md:grid-cols-3">
           {awards.map((a, i) => (

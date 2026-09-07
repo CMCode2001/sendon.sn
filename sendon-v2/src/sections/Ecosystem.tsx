@@ -1,5 +1,8 @@
 import { Container } from "@/components/layout/Container"
+import { SplitHeading } from "@/components/SplitHeading"
 import { Reveal } from "@/components/Reveal"
+import { Parallax } from "@/components/Parallax"
+import { TiltCard } from "@/components/TiltCard"
 
 const cards = [
   {
@@ -26,22 +29,23 @@ export function Ecosystem() {
   return (
     <section className="bg-neutre-50 py-20 md:py-24">
       <Container>
-        <Reveal>
-          <h2 className="text-center font-display text-[34px] font-bold tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
-            Trois interfaces, une seule mission.
-          </h2>
-        </Reveal>
+        <SplitHeading className="text-center font-display text-[34px] font-bold tracking-tight text-[#0c0a09] sm:text-[42px] lg:text-[50px]">
+          Trois interfaces, une seule mission.
+        </SplitHeading>
 
         <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
           {cards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.1}>
+            <Reveal key={c.title} delay={i * 0.12}>
+              <TiltCard intensity={7} className="h-full">
               <div className="flex h-full flex-col rounded-[24px] border border-[#eae4dc] bg-white p-5 md:rounded-[32px] md:p-8">
                 <div className="overflow-hidden rounded-2xl border border-[#eae4dc] bg-[#0c0a09]">
-                  <img
-                    src={c.img}
-                    alt={c.title}
-                    className="aspect-video w-full object-cover"
-                  />
+                  <Parallax amount={-24} scale>
+                    <img
+                      src={c.img}
+                      alt={c.title}
+                      className="aspect-video w-full object-cover"
+                    />
+                  </Parallax>
                 </div>
                 <h3 className="mt-6 font-display text-xl font-bold text-[#0c0a09]">
                   {c.title}
@@ -53,6 +57,7 @@ export function Ecosystem() {
                   {c.tag}
                 </p>
               </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Container } from "@/components/layout/Container"
-import { Reveal } from "@/components/Reveal"
+import { SplitHeading } from "@/components/SplitHeading"
 import { prefersStaticMotion } from "@/lib/motion"
 
 const steps = [
@@ -27,11 +27,9 @@ export function HowItWorks() {
   return (
     <section id="how" className="bg-[#0f0f0f] py-20 md:py-24">
       <Container>
-        <Reveal>
-          <h2 className="text-center font-display text-[34px] font-bold tracking-tight text-neutre-50 sm:text-[42px] lg:text-[50px]">
-            3 étapes. <span className="text-rouge-400">1 vie sauvée.</span>
-          </h2>
-        </Reveal>
+        <SplitHeading className="text-center font-display text-[34px] font-bold tracking-tight text-neutre-50 sm:text-[42px] lg:text-[50px]">
+          3 étapes. <span className="text-rouge-400">1 vie sauvée.</span>
+        </SplitHeading>
 
         <div className="mt-12 grid grid-cols-1 gap-0.5 overflow-hidden rounded-[20px] bg-[#1b1b1b] md:grid-cols-3">
           {steps.map((s, i) => (
