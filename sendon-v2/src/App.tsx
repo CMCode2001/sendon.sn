@@ -2,8 +2,10 @@ import { lazy, Suspense, useState, useCallback } from "react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/sections/Hero"
 import { ScrollToTop } from "@/components/ScrollToTop"
+import { ScrollProgress } from "@/components/ScrollProgress"
 import { Footer } from "@/components/layout/Footer"
 import { SplashScreen } from "@/components/SplashScreen"
+import { useLenis } from "@/lib/lenis"
 
 const DarkIntro    = lazy(() => import("@/sections/DarkIntro").then(m => ({ default: m.DarkIntro })))
 const Pourquoi     = lazy(() => import("@/sections/Pourquoi").then(m => ({ default: m.Pourquoi })))
@@ -21,9 +23,15 @@ export default function App() {
   const [splashDone, setSplashDone] = useState(false)
   const handleDone = useCallback(() => setSplashDone(true), [])
 
+  useLenis()
+
   return (
     <>
       {!splashDone && <SplashScreen onDone={handleDone} />}
+
+      {/* Barre de progression rouge au scroll */}
+      <ScrollProgress />
+
       <div className="min-h-screen bg-white">
         <Navbar />
         <ScrollToTop />
