@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container"
 import { Reveal } from "@/components/Reveal"
+import { TiltCard } from "@/components/TiltCard"
 
 const pills = [
   "Matching IA",
@@ -114,13 +115,11 @@ export function Features() {
           </Reveal>
 
           {/* small cards */}
-          {cards.map((c, i) => {
-            return (
-              <Reveal key={c.title} delay={(i % 3) * 0.08}>
-                <div className="flex h-full flex-col rounded-[20px] border border-[#eae4dc] bg-neutre-50 p-5 transition-shadow hover:shadow-md md:p-8">
-                  <span
-                    className={`flex h-11 w-11 items-center justify-center rounded-full ${c.iconBg}`}
-                  >
+          {cards.map((c, i) => (
+            <Reveal key={c.title} delay={(i % 3) * 0.1}>
+              <TiltCard className="h-full">
+                <div className="flex h-full flex-col rounded-[20px] border border-[#eae4dc] bg-neutre-50 p-5 shadow-sm md:p-8">
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-full ${c.iconBg}`}>
                     <img src={c.icon} alt="" className="h-6 w-6 object-contain" />
                   </span>
                   <h3 className="mt-4 font-display text-[17px] font-bold tracking-tight text-[#0c0a09]">
@@ -130,9 +129,9 @@ export function Features() {
                     {c.body}
                   </p>
                 </div>
-              </Reveal>
-            )
-          })}
+              </TiltCard>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>

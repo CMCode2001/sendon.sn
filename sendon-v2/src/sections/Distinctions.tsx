@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container"
 import { Reveal } from "@/components/Reveal"
+import { TiltCard } from "@/components/TiltCard"
 
 const awards = [
   {
@@ -37,26 +38,22 @@ export function Distinctions() {
 
         <div className="mt-12 grid grid-cols-1 gap-3.5 md:grid-cols-3">
           {awards.map((a, i) => (
-            <Reveal key={a.title} delay={i * 0.1}>
-              <div className="flex h-full flex-col gap-1.5 rounded-[20px] border border-neutre-300 bg-white p-5 md:p-7">
-                <img
-                  src={a.logo}
-                  alt={a.org}
-                  className="h-12 w-12 rounded-lg object-contain"
-                />
-                <p className="pt-3 text-[12px] font-bold uppercase tracking-wider text-[#c8beb6]">
-                  {a.year}
-                </p>
-                <h3 className="font-display text-[18px] font-bold tracking-tight text-[#0c0a09]">
-                  {a.title}
-                </h3>
-                <p className="font-display text-[18px] font-bold tracking-tight text-rouge-400">
-                  {a.org}
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-[#a09488]">
-                  {a.desc}
-                </p>
-              </div>
+            <Reveal key={a.title} delay={i * 0.12}>
+              <TiltCard intensity={8} className="h-full">
+                <div className="flex h-full flex-col gap-1.5 rounded-[20px] border border-neutre-300 bg-white p-5 shadow-sm md:p-7">
+                  <img src={a.logo} alt={a.org} className="h-12 w-12 rounded-lg object-contain" />
+                  <p className="pt-3 text-[12px] font-bold uppercase tracking-wider text-[#c8beb6]">
+                    {a.year}
+                  </p>
+                  <h3 className="font-display text-[18px] font-bold tracking-tight text-[#0c0a09]">
+                    {a.title}
+                  </h3>
+                  <p className="font-display text-[18px] font-bold tracking-tight text-rouge-400">
+                    {a.org}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[#a09488]">{a.desc}</p>
+                </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>
