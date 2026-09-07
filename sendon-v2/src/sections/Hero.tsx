@@ -1,8 +1,9 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState, useRef } from "react"
+import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/components/layout/Container"
 import { Parallax } from "@/components/Parallax"
+import { HeroPulse } from "@/components/HeroPulse"
 import { prefersStaticMotion } from "@/lib/motion"
 import { useHeroTypewriter } from "@/hooks/useHeroTypewriter"
 import { WaitlistModal } from "@/components/WaitlistModal"
@@ -13,9 +14,24 @@ const LINE2 = "Sauvez des vies."
 export function Hero() {
   const staticMotion = prefersStaticMotion()
   const [waitlistOpen, setWaitlistOpen] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   const { text1, text2, cursor1Visible, cursor2Visible } =
     useHeroTypewriter(LINE1, LINE2)
+
+  // Spotlight qui suit le curseur et éclaire la grille de points
+  const mx = useMotionValue(50)
+  const my = useMotionValue(40)
+  const sx = useSpring(mx, { stiffness: 90, damping: 20 })
+  const sy = useSpring(my, { stiffness: 90, damping: 20 })
+  const spotlight = useMotionTemplate`radial-gradient(circle 380px at ${sx}% ${sy}%, black 0%, transparent 75%)`
+
+  const trackCursor = (e: React.MouseEvent<HTMLElement>) => {
+    if (staticMotion) return
+    const r = sectionRef.current!.getBoundingClientRect()
+    mx.set(((e.clientX - r.left) / r.width) * 100)
+    my.set(((e.clientY - r.top) / r.height) * 100)
+  }
 
   return (
     <>
@@ -23,6 +39,8 @@ export function Hero() {
 
       <section
         id="hero"
+        ref={sectionRef}
+        onMouseMove={trackCursor}
         className="relative overflow-hidden bg-white pt-28 pb-8 md:pt-32 md:pb-0 lg:flex lg:min-h-[calc(100vh-76px)] lg:items-center lg:pt-16"
       >
         {/* dot grid */}
@@ -38,6 +56,24 @@ export function Hero() {
               "radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%)",
           }}
         />
+        {/* Grille de points « allumée » sous le curseur — même motif, plus dense,
+            révélé uniquement dans le halo qui suit la souris. */}
+        {!staticMotion && (
+          <motion.div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, rgba(217,30,30,0.45) 1.4px, transparent 1.4px)",
+              backgroundSize: "26px 26px",
+              maskImage: spotlight,
+              WebkitMaskImage: spotlight,
+            }}
+          />
+        )}
+
+        {/* Ligne ECG animée */}
+        <HeroPulse />
+
         {/* blob gauche bas — atténué */}
         <div className="pointer-events-none absolute -bottom-[10%] left-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(231,37,37,0.07),transparent_65%)] blur-[40px]" />
         {/* ligne accent haut */}
